@@ -4,23 +4,26 @@ import { Cron } from '@nestjs/schedule';
 import * as nodemailer from 'nodemailer';
 import * as smtpTransport from 'nodemailer-smtp-transport';
 import { StudentListService } from 'src/student-list/student-list.service';
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 @Injectable()
 export class EmailService {
     constructor(private readonly studentListService: StudentListService) { }
     private readonly logger = new Logger();
 
-    // @Cron('45 * * * * *')
-    @Cron('30 18 * * 1-5')
+    @Cron('* * * * * *')
+    // @Cron('30 18 * * 1-5')
     async sendMail() {
+        // console.log(process.env.EMAIL_SERVICE);
         const today = new Date().toDateString();
         const absentStudent = await this.studentListService.getAbsentStudentByDate(today);
         let transporter = nodemailer.createTransport(smtpTransport({
-            service: 'gmail',
-            host: 'smtp.gmail.com',
+            // service: 'gmail',
+            service: process.env.EMAIL_SERVICE,
+            host: process.env.HOST,
             auth: {
-                user: 'lyshenshing20@gmail.com',
-                pass: 'lyshenshing1689'
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASSWORD
             }
         }));
 
@@ -29,7 +32,7 @@ export class EmailService {
         } else {
             absentStudent.forEach(student => {
                 const mailOptions = {
-                    from: 'lyshenshing20@gmail.com',
+                    from: process.env.EMAIL_USER,
                     to: student.email,
                     subject: 'Absent Alert',
                     text: `StudentID: ${student.student_id} \n Major: ${student.major}\nSemester:${student.semester}\nYear:${student.year}\nDate:${student.created_at}`
