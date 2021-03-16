@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "major_name": "CS",
+        "subject_list": "Math, Soft Skill, C Programming, Fundemental",
+        "semester": "I",
+        "year": "I"
+    },
+    {
+        "id": 2,
+        "major_name": "CS",
+        "subject_list": "Math, Physic, C Programming, Fundemental",
+        "semester": "II",
+        "year": "I"
+    },
+    {
+        "id": 3,
+        "major_name": "CS",
+        "subject_list": "C++, English, Robotic, C#",
+        "semester": "I",
+        "year": "II"
+    },
+    {
+        "id": 4,
+        "major_name": "CS",
+        "subject_list": "C++, English, DB, C#",
+        "semester": "II",
+        "year": "II"
+    },
+    {
+        "id": 5,
+        "major_name": "CS",
+        "subject_list": "Network, Architecture, DB, C#",
+        "semester": "I",
+        "year": "III"
+    },
+    {
+        "id": 6,
+        "major_name": "CS",
+        "subject_list": "Network, Architecture, DB, Analyse",
+        "semester": "II",
+        "year": "III"
+    },
+    {
+        "id": 7,
+        "major_name": "CS",
+        "subject_list": "MIS, OOAD, SE&ITMP, WEB",
+        "semester": "I",
+        "year": "IIII"
+    },
+    {
+        "id": 8,
+        "major_name": "CS",
+        "subject_list": "MIS, OOAD, Linux, WEB",
+        "semester": "II",
+        "year": "IIII"
+    }
+]
