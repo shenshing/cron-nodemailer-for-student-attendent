@@ -11,8 +11,8 @@ export class EmailService {
     constructor(private readonly studentListService: StudentListService) { }
     private readonly logger = new Logger();
 
-    @Cron('* * * * * *')
-    // @Cron('30 18 * * 1-5')
+    // @Cron('* * * * * *')
+    @Cron('30 18 * * 1-5')
     async sendMail() {
         // console.log(process.env.EMAIL_SERVICE);
         const today = new Date().toDateString();
